@@ -13,7 +13,7 @@ public class PhoneDB_ExApp {
         BufferedReader bufferedReader = new BufferedReader(reader);
 
         String str;
-        int remove;
+        int removeIndex;
 
         Loop1:
         while (true) {
@@ -54,8 +54,8 @@ public class PhoneDB_ExApp {
                 case 3:
                     Scanner scanner2 = new Scanner(System.in);
                     System.out.print("삭제할 인덱스 입력 > ");
-                    remove = Integer.parseInt(scanner2.nextLine());
-                    list.remove(remove);
+                    removeIndex = Integer.parseInt(scanner2.nextLine());
+                    list.remove(removeIndex);
 
                     Writer writer2 = new FileWriter("/Users/huxx_j/Downloads/PhoneDB.txt");
                     BufferedWriter bufferedWriter2 = new BufferedWriter(writer2);

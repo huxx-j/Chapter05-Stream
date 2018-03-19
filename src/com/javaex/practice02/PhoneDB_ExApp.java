@@ -7,21 +7,16 @@ import java.util.Scanner;
 
 public class PhoneDB_ExApp {
     public static void main(String[] args) throws IOException {
-
         Scanner scanner = new Scanner(System.in);
-
         List<PhoneDB_Ex> list = new ArrayList<>();
         Reader reader = new FileReader("/Users/huxx_j/Downloads/PhoneDB.txt");
         BufferedReader bufferedReader = new BufferedReader(reader);
-        PhoneDB_Ex phoneDB_ex = new PhoneDB_Ex();
-
-        boolean run = true;
 
         String str;
-        int remove = 0;
+        int remove;
 
         Loop1:
-        while (run) {
+        while (true) {
             while (true) {
                 str = bufferedReader.readLine();
                 if (str == null) {
@@ -53,13 +48,7 @@ public class PhoneDB_ExApp {
 
                     Writer writer = new FileWriter("/Users/huxx_j/Downloads/PhoneDB.txt");
                     BufferedWriter bufferedWriter = new BufferedWriter(writer);
-
-
-                    for (PhoneDB_Ex aList : list) {
-                        bufferedWriter.write(aList.printInfo());
-                        bufferedWriter.flush();
-                    }
-
+                    bufferedWriter.write(list.get(list.size()-1).printInfo());
                     continue;
 
                 case 3:
@@ -76,13 +65,11 @@ public class PhoneDB_ExApp {
                         bufferedWriter2.newLine();
                         bufferedWriter2.flush();
                     }
-
                     continue;
 
                 case 4:
                     System.out.println("프로그램 종료");
-
-                    break;
+                    break Loop1;
             }
         }
     }
